@@ -1,2 +1,2 @@
 # cs336
-File uploads for CS 336, Fall 2016
+Cotter Koopman's (cjk45) file uploads for CS 336, Fall 2016
