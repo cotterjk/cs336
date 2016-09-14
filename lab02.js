@@ -60,7 +60,7 @@ test1.changeBirth("1994/11/11");
 console.log("test1 age is " + test1.getAge());
 
 var test2 = new Person('Default');
-test2.changeName('Cotter');
+test2.changeName('Cotter', "1996/08/12");
 test1.addFriend(test2);
 
 
