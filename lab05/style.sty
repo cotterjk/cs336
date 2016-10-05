@@ -1,0 +1,64 @@
+//Internal space (padding), same for each box
+breathing-room = 30px
+//Okay-looking border, same for each box (expression list var)
+decent-bor = 3px solid #999
+
+body
+    font  24px Helvetica
+    background  #999
+
+#main
+    min-height  800px
+    margin  0px
+    padding  0px
+    display  flex
+    flex-flow  row
+    //nested description for nav, article, aside within #main
+    nav
+        text-align  right
+        margin  0px
+        padding  breathing-room
+        border  decent-bor
+        background  #ccccff
+        flex  1 20%
+        order  1
+    article
+        margin  0px
+        padding  breathing-room
+        border  decent-bor
+        background  #dddd88
+        flex  3 1 60%
+        order  2
+    aside
+        margin  0px
+        padding  breathing-room
+        border  decent-bor
+        border-radius  0pt
+        background  #ccccff
+        flex  1 6 20%
+        order  3
+//description for header footer, not nested in #main
+header, footer
+    display  block
+    margin  0px
+    padding  breathing-room
+    border  decent-bor
+    background  #ffeebb
+header
+    font-size  40px
+footer
+    font-size  15px
+
+/* Too narrow to support three columns */
+@media all and (max-width  640px)
+    #main, #page
+        flex-direction  column
+
+
+    #main > article, #main > nav, #main > aside
+    /* Return them to document order */
+        order  0
+
+    //When the display shrinks to mobile view, left-align nav text
+    #main > nav
+        text-align  left

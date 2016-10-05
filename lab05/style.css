@@ -1,0 +1,66 @@
+body {
+  font: 24px Helvetica;
+  background: #999;
+}
+#main {
+  min-height: 800px;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-flow: row;
+}
+#main nav {
+  text-align: right;
+  margin: 0px;
+  padding: 30px;
+  border: 3px solid #999;
+  background: #ccf;
+  flex: 1 20%;
+  order: 1;
+}
+#main article {
+  margin: 0px;
+  padding: 30px;
+  border: 3px solid #999;
+  background: #dd8;
+  flex: 3 1 60%;
+  order: 2;
+}
+#main aside {
+  margin: 0px;
+  padding: 30px;
+  border: 3px solid #999;
+  border-radius: 0pt;
+  background: #ccf;
+  flex: 1 6 20%;
+  order: 3;
+}
+header,
+footer {
+  display: block;
+  margin: 0px;
+  padding: 30px;
+  border: 3px solid #999;
+  background: #feb;
+}
+header {
+  font-size: 40px;
+}
+footer {
+  font-size: 15px;
+}
+/* Too narrow to support three columns */
+@media all and (max-width: 640px) {
+  #main,
+  #page {
+    flex-direction: column;
+  }
+  #main > article,
+  #main > nav,
+  #main > aside {
+    order: 0;
+  }
+  #main > nav {
+    text-align: left;
+  }
+}
