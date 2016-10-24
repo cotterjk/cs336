@@ -1,0 +1,8 @@
+a i.  Page elements of composed of other elements. In this case, a comment box is composed of a comment form and list, and a list is composed of a series of comments. Thus, the functionality of the comment definition can change, and every comment in the list changes accordingly.
+ii. JSX allows you to dynamically create raw html inside a jquery function. That's why it looks like a combination of HTML and Javascript.
+iii.  Comments are loaded as JSON formatted state data from comments.json. loadCommentsFromServer calls ajax to parse the JSON comments. Comments are created and saved using the comment form widget. handleSubmit trims the text when the submit button is pressed and sets the state for the new comment. The comment is then added to comments.json
+iv. Props are immutable, while states are mutable. Props are only rendered once because they're directly passed by the parent. Thus, we use states to change the page responsively and dynamically.
+b i.  As I edit comments.json, comments disappear on the client immediately. This is because the comment box is updated from the comments when it is polled every 2000 milliseconds, so edits to the bank of comments appear almost instantaneously.
+ii. The resulting data is bound to the state, and when the state changes, the component re-renders itself automatically.
+iii. If the state of the component or DOM doesn't match the view, then the UI is not reflective of the underlying data. FOr example, submitting comments has no purpose if they're only being stored invisibly, and aren't being updated in the view.
+iv. Optimistic updates generate an id for the new comment before it is accept or saved on the server. If the server rejects the comment, it should disappear before its saved on the server.
