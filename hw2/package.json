@@ -1,0 +1,12 @@
+{
+  "name": "lab03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "helloWorld.js",
+  "scripts": {
+    "start": "kill $(pgrep node) ; node helloWorld.js &",
+    "stop": "kill $(pgrep node)"
+  },
+  "author": "",
+  "license": "ISC"
+}
