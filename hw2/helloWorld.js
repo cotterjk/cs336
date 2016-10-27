@@ -4,7 +4,6 @@
 
 const express = require("express")
 const app = express();
-const http_status = require("http-status-codes");
 const bodyParser = require("body-parser");
 app.use(express.static('public'));
 app.use(bodyParser.json());
@@ -29,6 +28,13 @@ var people = {
 //Returns JSON-formatted version of peopl/peoplee dictionary
 app.get('/people', function (req, res) {
   res.json(people);
+});
+
+app.post('/people', function(req, res) {
+    people[req.body.id] = new Person(req.body.firstName,
+                                     req.body.lastName,
+                                     req.body.startDate);
+    res.send(req.body.firstName + " " + req.body.lastName + " added. ");
 });
 
 /*  Function for variable path based on person id
