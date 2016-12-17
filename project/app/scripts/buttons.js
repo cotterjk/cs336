@@ -1,35 +1,30 @@
+/* React component for the button(s)
+ * 12/19 - Renders a show/hide button that will toggle the visibility of the canvas, effectively hiding the coordinate points
+ * drawn by the container component
+ *
+ * Written by Cotter Koopman and Javin Unger for CS336, Fall 2016
+ */
+
 import React from 'react';
 import $ from 'jquery';
 
 module.exports = React.createClass({
-	getInitialState: function() [
-		return {x: 0, y: 0};
+	getInitialState: function() {
+		return {visibility: "hidden"}
 	},
-	handleXChange: function(e) {
-		this.setState({x: e.target.value});
-	},
-	handleYChange: function(e) {
-		this.setState({y: e.target.value});
-	},
-	handleSubmit: function(e) {
+	handleShowHide: function(e) {
 		e.preventDefault();
-		var x = this.state.x.trim();
-		var y = this.state.y.trim();
-		if (!x || !y) { return; }
-		this.props.onCoordinateSubmit({x: x, y: y});
-		this.setState({x: 0, y: 0});
+		if (this.state.visibility === "hidden") {
+			this.setState({visibility: "visible"});
+		} else {
+			this.setState({visibility: "hidden"});	
+		}
+		$("canvas").css({"visibility": this.state.visibility});
 	},
 	render: function() {
-		//if first time thru
 		return (
-			<form className="buttons" onSubmit={this.handleSubmit}>
-				<input className="ui-button ui-widget ui-corner-all" type="submit" value="Restart" />
-			</form>
-		);
-		//if done w/ first time (to see all results)
-		return (
-			<form className="buttons" onSubmit={this.handleSubmit}>
-				<input className="ui-button ui-widget ui-corner-all" type="submit" value="Results" />
+			<form className="buttons" onClick={this.handleShowHide}>
+				<input id="shButton" className={this.state.visibility} type="button" value="Show/Hide" />
 			</form>
 		);
 	}
